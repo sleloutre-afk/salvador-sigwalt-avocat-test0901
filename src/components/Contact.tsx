@@ -1,4 +1,5 @@
 'use client'
+import { MonogramESS } from './Navbar'
 
 export default function Contact() {
   return (
@@ -109,6 +110,16 @@ export default function Contact() {
             <img src="/office.png" alt="Cabinet Salvador-Sigwalt — 22 rue Fondaudège, Bordeaux"
               style={{ position: 'relative', zIndex: 1, width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
             />
+            {/* Monogramme superposé */}
+            <div style={{
+              position: 'absolute', top: '1.8rem', right: '1.8rem', zIndex: 3,
+              background: 'rgba(39,32,24,0.55)',
+              backdropFilter: 'blur(6px)',
+              padding: '0.9rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <MonogramESS color="#f5f1ec" size={64} />
+            </div>
             <div style={{
               position: 'absolute', bottom: '-14px', left: '-14px', zIndex: 0,
               width: '72px', height: '72px',
