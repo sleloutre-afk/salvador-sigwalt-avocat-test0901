@@ -98,40 +98,46 @@ export default function Contact() {
 
           </div>
 
-          {/* Image bureau */}
-          <div style={{ position: 'relative' }}>
-            <div style={{
-              position: 'absolute', top: '-14px', right: '-14px', zIndex: 0,
-              width: '72px', height: '72px',
-              borderTop: '1px solid rgba(139,98,64,0.40)',
-              borderRight: '1px solid rgba(139,98,64,0.40)',
-            }} />
+          {/* Image bureau avec overlay centré — style d'Arfeuille */}
+          <div style={{ position: 'relative', overflow: 'hidden', height: '480px' }}>
+            {/* Photo */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/office.png" alt="Cabinet Salvador-Sigwalt — 22 rue Fondaudège, Bordeaux"
-              style={{ position: 'relative', zIndex: 1, width: '100%', height: '420px', objectFit: 'cover', display: 'block' }}
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
             />
-            {/* Monogramme superposé */}
+            {/* Overlay sombre progressif */}
             <div style={{
-              position: 'absolute', top: '1.8rem', right: '1.8rem', zIndex: 3,
-              background: 'rgba(39,32,24,0.55)',
-              backdropFilter: 'blur(6px)',
-              padding: '0.9rem',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <MonogramESS color="#f5f1ec" size={64} />
-            </div>
-            <div style={{
-              position: 'absolute', bottom: '-14px', left: '-14px', zIndex: 0,
-              width: '72px', height: '72px',
-              borderBottom: '1px solid rgba(139,98,64,0.40)',
-              borderLeft: '1px solid rgba(139,98,64,0.40)',
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to bottom, rgba(39,32,24,0.25) 0%, rgba(39,32,24,0.68) 55%, rgba(39,32,24,0.88) 100%)',
             }} />
+            {/* Monogramme + nom centrés */}
             <div style={{
-              position: 'absolute', bottom: '-1px', right: 0, zIndex: 2,
-              background: '#272018', color: '#f5f1ec',
-              padding: '0.55rem 1.1rem',
-              fontFamily: 'var(--font-playfair)', fontSize: '0.68rem', letterSpacing: '0.10em',
-            }}>22 rue Fondaudège · Bordeaux</div>
+              position: 'absolute', inset: 0, zIndex: 2,
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              gap: '1.1rem',
+            }}>
+              <MonogramESS color="#f5f1ec" size={80} />
+              <div style={{ textAlign: 'center' }}>
+                <div style={{
+                  fontFamily: 'var(--font-playfair)',
+                  fontSize: '1.10rem', fontWeight: 400, color: '#f5f1ec',
+                  letterSpacing: '0.02em', marginBottom: '0.4rem',
+                }}>Maître Eva Salvador-Sigwalt</div>
+                <div style={{
+                  fontSize: '0.58rem', letterSpacing: '0.24em',
+                  color: 'rgba(245,241,236,0.55)', textTransform: 'uppercase',
+                }}>Avocate · Barreau de Bordeaux</div>
+              </div>
+            </div>
+            {/* Adresse bandeau bas */}
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 3,
+              background: 'rgba(39,32,24,0.82)',
+              padding: '0.8rem 1.4rem',
+              textAlign: 'center',
+              fontFamily: 'var(--font-playfair)', fontSize: '0.68rem',
+              letterSpacing: '0.12em', color: 'rgba(245,241,236,0.65)',
+            }}>22 rue Fondaudège · 33000 Bordeaux</div>
           </div>
 
         </div>
