@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --color-fonce:        #272018;
+  --color-fonce-dark:   #16120d;
+  --color-accent:       #8b6240;
+  --color-accent-light: #a87c58;
+  --color-fond:         #f5f1ec;
+  --color-creme:        #ede7de;
+  --color-muted:        #5a4a38;
+  --color-divider:      #d4c8bb;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-fond);
+  color: var(--color-fonce);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout helpers */
+.max-w-6xl  { max-width: 72rem; margin-left: auto; margin-right: auto; }
+.px-6       { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .grid-2col { grid-template-columns: 1fr; }
+}
+
+.md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: 1fr; }
+  .md\:grid-cols-3 { grid-template-columns: 1fr; }
+  .md\:grid-cols-4 { grid-template-columns: 1fr; }
+}
+
+/* Hover utilities */
+.hover-btn-primary {
+  transition: background 0.22s ease, color 0.22s ease;
+}
+.hover-btn-primary:hover {
+  background: var(--color-accent) !important;
+  color: var(--color-fond) !important;
+}
+
+.hover-btn-outline {
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+.hover-btn-outline:hover {
+  background: var(--color-fonce) !important;
+  color: var(--color-fond) !important;
+}
+
+.hover-card {
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+.hover-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(39, 32, 24, 0.12);
+}
+
+/* Kenburns hero */
+@keyframes kenburns {
+  0%   { transform: scale(1.00) translate(0%, 0%); }
+  50%  { transform: scale(1.06) translate(-1.5%, -1%); }
+  100% { transform: scale(1.00) translate(0%, 0%); }
+}
+.kenburns {
+  animation: kenburns 18s ease-in-out infinite;
+}
+
+/* Navbar responsive */
+.nav-desktop { display: none; align-items: center; }
+.nav-burger  { display: flex; }
+@media (min-width: 768px) {
+  .nav-desktop { display: flex; }
+  .nav-burger  { display: none; }
+}
